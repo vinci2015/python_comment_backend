@@ -1,12 +1,12 @@
 import json
 import os
+import time
 from functools import reduce
 
 from flask import Flask, url_for, redirect, jsonify, request, abort
 from flask_cors import CORS
 from werkzeug.exceptions import HTTPException
 from werkzeug.utils import secure_filename
-import time
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -145,6 +145,5 @@ def wrap_incorrect_response(exception):
 
 
 if __name__ == '__main__':
-    fd = open(reduce(os.path.join, [os.path.dirname(__file__), 'files', 'comments.json']),mode='w')
     app.run()
 
